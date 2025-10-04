@@ -31,7 +31,7 @@
   .hidden{display:none}
   .result{padding:18px;text-align:center}
   .result h2{margin:6px 0 10px 0}
-  .desc{color:var(--muted);line-height:1.5}
+  .desc{color:var(--muted);line-height:1.5;white-space:pre-line}
   .result img{max-width:240px;margin:20px auto;display:block}
   footer.small{font-size:12px;color:var(--muted);text-align:center;margin-top:12px}
   .hero{text-align:center}
@@ -46,7 +46,7 @@
     <!-- CAPA -->
     <div class="card" id="capaCard">
       <div class="hero">
-        <img src="https://via.placeholder.com/600x300?text=Capa+do+Teste" alt="Capa do teste">
+        <img src="Venha-comigo-descobrir-seu-temperamento.png" alt="Capa do teste">
         <br>
         <button onclick="iniciarQuiz()">Quero Descobrir</button>
       </div>
@@ -68,7 +68,7 @@
     <div class="card hidden" id="resultCard">
       <div class="result">
         <h2 id="resultTitle">Seu temperamento</h2>
-        <img src="https://via.placeholder.com/240?text=Resultado" alt="Resultado">
+        <img src="Viviane-Carvalho-Instagram.png" alt="Resultado">
         <p class="desc" id="resultText"></p>
         <div style="margin-top:14px">
           <button id="restartBtn">Fazer de novo</button>
@@ -131,10 +131,10 @@ const questions = [
     {t:"Fleumático", txt:"Procura manter a paz"}
   ]},
   { q:"Quando você está em uma situação inesperada, o que faz mais sentido pra você?", options:[
-    {t:"Sanguíneo", txt:"Tento deixar o ambiente leve, buscando conversar e distrair"},
     {t:"Colérico", txt:"Tomo a frente e decido rápido, mesmo que depois eu ajuste"},
+    {t:"Sanguíneo", txt:"Tento deixar o ambiente leve, buscando conversar e distrair"},
     {t:"Melancólico", txt:"Penso bem antes de agir, analisando os detalhes"},
-    {t:"Fleumático", txt:"Mantenho a calma e espero as coisas se organizarem "}
+    {t:"Fleumático", txt:"Mantenho a calma e espero as coisas se organizarem"}
   ]}
 ];
 
@@ -247,14 +247,11 @@ restartBtn.addEventListener('click',()=>{
   capaCard.classList.remove('hidden');
 });
 
-function iniciarQuiz(){
+window.iniciarQuiz = function(){
   capaCard.classList.add('hidden');
   quizCard.classList.remove('hidden');
   render();
-}
-
-// tornar a função global para o botão funcionar
-window.iniciarQuiz = iniciarQuiz;
+};
 </script>
 </body>
 </html>
